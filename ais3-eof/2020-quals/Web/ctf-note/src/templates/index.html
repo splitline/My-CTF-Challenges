@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Note</title>
+    <link rel="stylesheet" href="/static/bulma.min.css">
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script nonce="{{nonce}}" src="config.js"></script>
+</head>
+
+<body>
+    <section class="hero is-primary">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="/">
+                            <p>CTF Note</p>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title" id="ctf-note-title"></h1>
+            </div>
+        </div>
+    </section>
+    <br>
+    <div class="container">
+        <button class="button is-fullwidth is-primary" id="add-ctf">新增 CTF Writeup</button>
+        <form action="/report" method="post">
+            <input type="hidden" name="url" value="">
+            <button class="button is-fullwidth is-danger" id="report-ctf">我 Writeup 寫得很棒想給管理員看 :)</button>
+        </form>
+    </div>
+    <br>
+    <div class="container content" id="content"></div>
+    <br>
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>Meow /ᐠ｡ꞈ｡ᐟ\</p>
+        </div>
+    </footer>
+
+    <div class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h1 class="title">新增 CTF Writeup</h1>
+                <div class="control">
+                    <input name="contestName" class="input" type="text" placeholder="CTF 名稱"
+                        value="AIS3 EOF Qualification">
+                </div>
+                <hr>
+                <div id="challenge-container">
+                </div>
+                <div class="control">
+                    <button type="button" class="button is-info is-fullwidth" id="add-challenge">新增題目</button>
+                </div>
+                <hr>
+                <div class="control">
+                    <button type="button" class="button is-primary is-fullwidth" id="submit">送出</button>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+
+    <template id="challenge-template">
+        <form class="challenge">
+            <div class="field">
+                <div class="select">
+                    <select name="category">
+                        <option>Web</option>
+                        <option>Reverse</option>
+                        <option>Pwn</option>
+                        <option>Crypto</option>
+                        <option>Misc</option>
+                    </select>
+                </div>
+                <button type="button" class="button is-danger is-small is-pulled-right delete-challenge">刪除</button>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input name="challenge" class="input" type="text" placeholder="題目名稱">
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <textarea class="textarea is-primary" name="content"
+                        placeholder="Write-up (支援 Markdown)"></textarea>
+                </div>
+            </div>
+            <hr>
+        </form>
+    </template>
+    <script nonce="{{nonce}}" src="/static/markdown.min.js"></script>
+    <script nonce="{{nonce}}" src="/static/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+.challenge {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.notification {
+    padding: 1em;
+    text-align: center;
+    color: #363636;
+}
+
+.notification:hover {
+    transition: .25s all;
+    scale: 1.05;
+    z-index: 1;
+    box-shadow: 0 0 .5em #ccc;
+}

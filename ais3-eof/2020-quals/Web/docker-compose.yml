@@ -1,0 +1,41 @@
+
+version: "3"
+
+services:
+  xssbot:
+    build: ./ctf-note/xssbot
+    image: splitline/xssbot
+    container_name: xssbot-ctf-note
+    environment: 
+      - PASSWORD=lHgpu4EqS4DOJz12Klz0JjQ9CY8nJ3um8yTKl-3YXVg
+  
+  ctf-note:
+    depends_on:
+      - xssbot
+    build: ./ctf-note
+    container_name: ctf-note
+    volumes:
+      - ./ctf-note/src/:/app
+    ports:
+      - 9527:80/tcp
+    environment: 
+      - FLAG=FLAG{會不會由於出太難以至於根本沒人看到這個FLAG啊，但你現在好像看到ㄌ，讚}
+      - PASSWORD=lHgpu4EqS4DOJz12Klz0JjQ9CY8nJ3um8yTKl-3YXVg
+  
+  what-the-file:
+    build: ./what-the-file
+    container_name: what-the-file
+    volumes:
+      - ./what-the-file/flag:/flag_4a55febfacff05bd19fa26ae3d74f796:ro
+    ports:
+      - 9487:80/tcp
+  
+  CYBERPUNK1977:
+    image: tiangolo/uwsgi-nginx-flask:python3.8
+    container_name: CYBERPUNK1977
+    volumes:
+      - ./CYBERPUNK1977/app/:/app
+    ports:
+      - 1977:80/tcp
+    environment: 
+      - FLAG=FLAG{ＲE𝖠𝗟_FⅬ𝗔Ｇ}

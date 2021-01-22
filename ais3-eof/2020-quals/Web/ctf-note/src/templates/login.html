@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CTF Note</title>
+    <link rel="stylesheet" href="/static/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero is-primary is-fullheight">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                        <h1 class="title">Login & Register</h1>
+                        <form action="/login" method="POST" class="box">
+                            <div class="field">
+                                <label for="" class="label">Username</label>
+                                <input type="text" name="username" class="input" required>
+                            </div>
+                            <div class="field">
+                                <label for="" class="label">Password</label>
+                                <input type="password" name="password" class="input" required>
+                            </div>
+                            <div class="field">
+                                <button class="button is-success is-fullwidth">Login / Register</button>
+                            </div>
+                            {% if error %}<p>{{error}}</p>{% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  pyshell:
+    build: ./
+    ports:
+      - "5566:5566"
+    expose:
+      - "5566"
