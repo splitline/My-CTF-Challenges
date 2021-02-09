@@ -13,7 +13,7 @@
 
 ### Detailed Solution
 
-基本上這題是一個沒什麼營養的題目，但抱歉R，tag 有 troll，就是要整你各位一下 >_^
+基本上這題除了 PEP-3131 以外是一個沒什麼營養的題目，但抱歉R，tag 有 troll，就是要整你各位一下 >_^
 
 nc 上去之後，一開始會直接 print 一句話：`Welcome to Cat Translator, you can only type 喵 or ニャーン here!`。但其實在印出這句話之前，他還有印出一句 hint，但由於 `\r`（carriage return）字元的影響而被覆蓋掉了：
 ```python
@@ -31,7 +31,7 @@ not __import__('re').search("[a-zA-Z0-9 ]+", code) and eval(code)
 
 問題來了，這到底是什麼奇怪 feature 呢？其實這被規範在 [PEP-3131](https://www.python.org/dev/peps/pep-3131/)（PEP 全文是 Python Enhancement Proposals，基本上各種 Python feature 都基於此設計的）。
 
-簡單來說，它提到了所有 Python script 中的 Non-ASCII identifiers 在被直譯時，都會先經過一層 NFKC-normalization 的處理，因此那些全形英文字元都會被 normalize 回普通的英文字，並會維持原本的大小寫。而關於 NFKC 以及各種 normalization 的官方定義可以看這份 report：https://unicode.org/reports/tr15/；熟悉 web / web security 的人，或許會發現這個其實跟 SSRF bypass 經典招數之一：IDNA normalization 有點異曲同工之妙。
+簡單來說，它提到了所有 Python script 中的 Non-ASCII identifiers 在被直譯時，都會先經過一層 NFKC-normalization 的處理，因此那些全形英文字元都會被 normalize 回普通的英文字，並會維持原本的大小寫。而關於 NFKC 以及各種 normalization 的官方定義可以看這份 report：https://unicode.org/reports/tr15/ ；熟悉 web / web security 的人，或許會發現這個其實跟 SSRF bypass 經典招數之一：IDNA normalization 有點異曲同工之妙。
 
 總之，在知道這個 feature 之後 payload 就能很簡單的設計了，不過只是換成全型字元實在有些無趣，這邊附個看起來比較豐富的版本 XD
 
