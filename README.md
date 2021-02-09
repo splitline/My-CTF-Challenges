@@ -18,5 +18,5 @@
    Name   | Category | Keywords | Estimated Difficulty
 ----------|----------|----------|----------------------
 [Pikora](ais3-eof/2020-final/pikora)                 | Misc    | Pickle, PPC     | Hard
-[Cat Slayer](ais3-eof/2020-final/cat-slayer)         | Misc    | Troll, Python   | Easy
-[Cat Translator](ais3-eof/2020-final/cat-translator) | Reverse | Python bytecode | Medium ~ Hard
+[Cat Translator](ais3-eof/2020-final/cat-translator) | Misc    | Troll, Python   | Easy
+[Cat Slayer](ais3-eof/2020-final/cat-slayer)         | Reverse | Python bytecode | Medium ~ Hard
