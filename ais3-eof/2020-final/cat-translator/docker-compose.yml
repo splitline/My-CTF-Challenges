@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  cat-translator:
+    build: ./
+    ports:
+      - "2222:2222"
+    expose:
+      - "2222"

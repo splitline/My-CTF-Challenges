@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  pikora:
+    privileged: true
+    volumes:
+      - ./share:/ctf
+    build: ./
+    ports:
+      - "48763:48763"
+    expose:
+      - "48763"
