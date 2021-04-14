@@ -8,7 +8,7 @@
 [WTF](ais3-eof/2020-quals/Web/what-the-file)             | Web  | php wrapper, `file` command
 [CYBERPUNK 1977](ais3-eof/2020-quals/Web/CYBERPUNK1977)  | Web  | SQL injection, quine, python format string
 [CTF Note](ais3-eof/2020-quals/Web/ctf-note)             | Web  | prototype pollution, DOM clobbering, RPO
-[3DUSH3LL](ais3-eof/2020-quals/3DUSH3LL)                 | Misc | Python Sandbox Escape
+[3DUSH3LL](ais3-eof/2020-quals/Misc/3DUSH3LL)            | Misc | Pyjail
 
 
 ### 2020 Final
