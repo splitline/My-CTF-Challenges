@@ -1,0 +1,22 @@
+version: "3.4"
+
+x-share-env: &share-env
+  PASSWORD: 1sBS2dAg7eZUZDp58PGDRrnwYAzQd2HtWgnx9ySfW0M
+
+services:
+  xss-me:
+    depends_on:
+      - xss-bot
+    build: ./app
+    volumes:
+      - ./app/:/app
+    ports:
+      - 8003:80/tcp
+    environment:
+      <<: *share-env
+  
+  xss-bot:
+    build: ./bot
+    image: splitline/xssbot
+    environment:
+      <<: *share-env

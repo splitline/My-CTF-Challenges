@@ -1,0 +1,10 @@
+version: "3"
+services:
+    Maou:
+        image: tomcat
+        ports: 
+            - 8787:8080
+        volumes: 
+            - ./jstl-1.2.jar:/usr/local/tomcat/lib/jstl-1.2.jar
+            - ./maou.war:/usr/local/tomcat/webapps/maou.war
+            - ./flag:/____fl4g____

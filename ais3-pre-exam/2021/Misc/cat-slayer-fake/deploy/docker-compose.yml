@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  cat-slayer-fake:
+    build: ./
+    volumes:
+      - ./lock.py:/home/h173/lock.py
+    environment: 
+      - TERM=xterm-256color
+    ports: 
+      - 5566:22/tcp
+      - 7788:23/tcp

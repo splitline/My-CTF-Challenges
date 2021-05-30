@@ -12,7 +12,7 @@ from rq import Queue
 app = Flask(__name__)
 app.secret_key = secrets.token_bytes(32)
 app.queue = Queue(connection=Redis('xssbot'))
-app.config['SERVER_NAME'] = 'ctf-note.splitline.tw:9527'
+#app.config['SERVER_NAME'] = 'ctf-note.splitline.tw:9527'
 app.config['SESSION_COOKIE_SAMESITE'] = 'Strict'
 
 

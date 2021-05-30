@@ -1,0 +1,9 @@
+services:
+  cat-slayer-cloud:
+    build: ./
+    ports:
+      - "2222:2222"
+    expose:
+      - "2222"
+    environment: 
+      - KEY=EnR3vCSX7PFyCzekBVAMMIK0jICLL1Mx

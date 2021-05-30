@@ -1,0 +1,16 @@
+service cat_slayer_cloud
+{
+        disable = no
+        type = UNLISTED
+        wait = no
+        server = /home/cat_slayer_cloud/run.sh
+        socket_type = stream
+        protocol = tcp
+        user = cat_slayer_cloud
+        bind = 0.0.0.0
+        port = 2222
+        per_source = 5
+        rlimit_cpu = 3
+        nice = 18
+        flags = REUSE
+}

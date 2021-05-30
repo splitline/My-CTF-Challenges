@@ -1,0 +1,16 @@
+service game
+{
+        disable = no
+        type = UNLISTED
+        wait = no
+        server = /game/run.sh
+        socket_type = stream
+        protocol = tcp
+        user = root
+        bind = 0.0.0.0
+        port = 22222
+        per_source = 5
+        rlimit_cpu = 3
+        nice = 18
+        flags = REUSE
+}

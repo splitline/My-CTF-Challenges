@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  web-chals-monitor:
+    build: ./
+    volumes:
+      - ./src/:/var/www/html/
+      - ./flag:/flag_81c015863174cd0c14034cc60767c7f5
+    ports: 
+      - 8001:80/tcp

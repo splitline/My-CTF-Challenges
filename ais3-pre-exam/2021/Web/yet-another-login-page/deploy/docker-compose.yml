@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  login-page:
+    image: tiangolo/uwsgi-nginx-flask:python3.8
+    volumes:
+      - ./app/:/app
+    ports:
+      - 8002:80/tcp
+    environment:
+      - FLAG=AIS3{/r/badUIbattles?!?!}
+      - PASSWORD=uw8NWFyNSW0sAdKc0CLAJZ0D9r6zhmIu2jB7nNM

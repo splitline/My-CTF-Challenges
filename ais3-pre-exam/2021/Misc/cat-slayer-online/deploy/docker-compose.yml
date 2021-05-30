@@ -1,0 +1,7 @@
+services:
+  cat-slayer-online:
+    build: ./
+    ports:
+      - "22222:22222"
+    expose:
+      - "22222"
