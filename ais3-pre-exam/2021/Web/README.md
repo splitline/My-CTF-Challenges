@@ -268,7 +268,8 @@ message 字數限制一共 55 個字元，扣掉必備的`</script><script>` 以
 我設計這個 CSP 的用意有兩點
 
 1. 告訴大家 Content Security Policy 這種東西的存在
-2. 限制不能使用 eval （啟用 CSP 後需要特別添加 `'unsafe-eval'` 的規則才會被准許使用 eval）
+2. 無法引用外部 script 進來
+3. 限制不能使用 eval （啟用 CSP 後需要特別添加 `'unsafe-eval'` 的規則才會被准許使用 eval）
 
 不能用 eval 其實很好解決，首先第一種解法可以利用 JavaScript scheme。
 
