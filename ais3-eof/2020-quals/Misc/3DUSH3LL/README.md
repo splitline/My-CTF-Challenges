@@ -128,7 +128,7 @@ function(
 
 就可以創造/複製出任意 function 了。
 
-`class function(object)` 的部分比較簡單，可以透過 `(lambda:None).__class__` 的方式拿到。
+`class function(object)` 的部分比較簡單，可以透過 `(lambda:None).__class__` 的方式拿到。
 
 `class code(object)` 由於 `__code__` 被擋，因此不能最直覺的在一個 function 底下拿到，那還有什麼地方會有 code object 呢？其實像是 `coroutine object` 或 `generator object` 等等的底下分別有 `cr_code` 跟 `gi_code` 可以利用，而在此場景下 generator 較為實用，可以用 `(_ for _ in ()).gi_code.__class__` 獲得。
 

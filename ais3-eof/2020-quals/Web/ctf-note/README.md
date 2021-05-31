@@ -23,7 +23,7 @@ WriteUps[writeup.category][writeup.challenge] = writeup.content;
 
 知道這件事後應該可以很快地發現：一旦成功污染了 `Object` 的 prototype，會導致 markdown render 出來的每個 element 都被加上 `[challenge]=[content]` 的 attribute，而 `challenge`（也就是 attribute name）的部分是不會被 HTML escape 掉的，可以寫入任意 HTML。
 
-不過由於有嚴格的 CSP 限制，我們目前還做不到 XSS
+不過由於有嚴格的 CSP 限制，我們目前還做不到 XSS
 ```
 Content-Security-Policy:
 	default-src 'none'; base-uri 'none'; img-src 'self'; style-src 'self'; connect-src 'self'; script-src 'strict-dynamic' 'nonce-[hex]'
