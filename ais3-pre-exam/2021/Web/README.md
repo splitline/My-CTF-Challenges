@@ -163,7 +163,7 @@ $data['alive'] = strstr(shell_exec("timeout 1 nc -vz '$host' $port 2>&1"), "succ
 
 總結一下，我們現在的目標是：要在 `timeout 1 nc -vz '$host' $port 2>&1` 的 host 變數中不用到空白字元注入任意指令。
 
-然而其實不用空白字元相當簡單，在 sh 中你可以使用 `"\t"` (tab) 或 `$IFS` 取代空白，或是用類似  `{cat,/flag}` 這種格式的指令，這些小技巧應該都能[簡單 Google 到](https://www.google.com/search?q=command injection without whitespace)，所以只要把 host 注入成類似 `';cat\t/flag;'` 這樣的東西就能注入任意命令了！
+然而其實不用空白字元相當簡單，在 sh 中你可以使用 `"\t"` (tab) 或 `$IFS` 取代空白，或是用類似  `{cat,/flag}` 這種格式的指令，這些小技巧應該都能[簡單 Google 到](https://www.google.com/search?q=command+injection+without+whitespace)，所以只要把 host 注入成類似 `';cat\t/flag;'` 這樣的東西就能注入任意命令了！
 
 最終 payload 如下：
 ```
