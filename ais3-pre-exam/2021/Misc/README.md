@@ -4,7 +4,7 @@
 
 - Category: Welcome
 - Difficulty: Welcome
-- Solves: 315/328
+- Solves: 315/327 (Pre-Exam), 102/190 (MyFirstCTF)
 - Keywords: Welcome
 
 玩梗題(X)，純粹回想到之前看寒蟬的時候有一個看起來很適合出水題的場景就出了，讚
@@ -26,7 +26,7 @@
 
 - Category: Misc
 - Difficulty: Easy
-- Solves: 12/328
+- Solves: 12/327
 - Keywords: Game, Python Sandbox
 
 原本是希望大家認真打怪，但由於 code 寫太爛寫出了一個輸入負數值洗錢的 bug，但也沒差，反正蠻契合 CTF 主題的 XD
@@ -74,7 +74,7 @@
 
 - Category: Misc
 - Difficulty: Medium
-- Solves: 1/328
+- Solves: 1/327
 - Keywords: Pickle, ECB Cut & Paste
 
 我承認這題以 pre-exam 來說是偏難的題目 ><

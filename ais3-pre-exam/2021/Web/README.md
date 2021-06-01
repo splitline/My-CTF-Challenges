@@ -12,7 +12,7 @@
 
 - Category: Web
 - Difficulty: Baby 👶
-- Solves: 116/328
+- Solves: 116/327 (Pre-Exam), 10/190 (MyFirstCTF)
 - Keywords: JSON injection
 
 這題的定位是**零基礎題**。我的零基礎指的是已具備程式能力，但沒有認真的網站開發經驗，也沒 Web security 基礎知識。
@@ -66,7 +66,7 @@ print(valid_user(user)) # True
 
 - Category: Web
 - Difficulty: Easy
-- Solves: 26/328
+- Solves: 26/327 (Pre-Exam), 1/190 (MyFirstCTF)
 - Keywords: LFI, SQL injection, Command injection
 
 定位就只是平凡無奇的老梗漏洞組合包而已⋯⋯吧？
@@ -178,7 +178,7 @@ http://quiz.ais3.org:8001/
 
 - Category: Web
 - Difficulty: Easy ~ Medium
-- Solves: 5/328
+- Solves: 5/327
 - Keywords: XSS, CSP
 
 這題除了 content security policy (CSP) 以外，其實是復現了我在 real world 遇到的一個場景，而且它原本的字數限制還比這題稍微嚴格一些 XD
@@ -291,7 +291,7 @@ message 字數限制一共 55 個字元，扣掉必備的`</script><script>` 以
 
 - Category: Web
 - Difficulty: Easy ~ Medium
-- Solves: 2/328
+- Solves: 2/327
 - Keywords: Java Deserialization, Reflection
 
 這題解題人數最少，但應該是比前一題 `XSS Me` 還簡單的題目，只是我猜很多人都因為平時沒有看過 Java Web 而略過了這題 > <

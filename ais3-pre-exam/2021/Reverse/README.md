@@ -4,7 +4,7 @@
 
 - Category: Reverse
 - Difficulty: Easy
-- Solves: 75/328
+- Solves: 75/327 (Pre-Exam), 0/190 (MyFirstCTF)
 - Keywords: Pickle Bytecode
 
 其實這題只是讀 bytecode 練習題而已，並告訴大家可以用 pickle 寫程式 —— 然而就算讀不懂（甚至不 disassemble 它），多少也有辦法通靈得出來。但其實除了硬讀以外，還有一些不用花苦力讀的有趣解法，可惜的是好像沒看到什麼人用 XD
