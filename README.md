@@ -3,10 +3,7 @@
 ## AIS3 Pre-Exam
 
 ### 2021
-#### Write-ups
-   - [Web](ais3-pre-exam/2021/Web/) 
-   - [Reverse](ais3-pre-exam/2021/Reverse/)
-   -  [Misc](ais3-pre-exam/2021/Misc/)
+   [Web](ais3-pre-exam/2021/Web/) | [Reverse](ais3-pre-exam/2021/Reverse/) | [Misc](ais3-pre-exam/2021/Misc/)
 
    | Name                         | Category | Keywords                              | Estimated Difficulty |
    | ---------------------------- | -------- | ------------------------------------- | -------------------- |
