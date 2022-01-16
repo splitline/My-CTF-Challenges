@@ -1,0 +1,121 @@
+body {
+  background-color: #ebebeb;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  bottom: 1rem;
+}
+
+.start {
+  width: 25em;
+  height: 25em;
+  /* background: url('/static/start.png') center;
+    background-size: cover; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  z-index: 100;
+  cursor: pointer;
+  transition: ease-out 0.1s;
+}
+
+.start:hover {
+  transform: translate(-50%, -50%) scale(1.25);
+}
+
+.start img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: spin 5s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.start h1 {
+  padding: 10px;
+  background-color: #eee;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  font-size: 2rem;
+  font-family: "Consolas", monospace;
+  color: #ababab;
+  margin: 0;
+}
+
+.video-background {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -99;
+}
+
+.video-foreground,
+.video-background video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.login-panel {
+  font-family: "Consolas", Courier, monospace;
+  font-size: 1.5rem;
+  color: white;
+  background-color: #1089b5;
+
+  border-radius: 16px;
+  width: 100%;
+  min-height: 10rem;
+  max-width: 40rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+
+  display: flex;
+  flex-direction: row;
+
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.login-panel input {
+  width: 100%;
+}
+
+.login-panel .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-panel .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,12 @@
+version: '3.5'
+
+services:
+  web:
+    build: ./
+    volumes:
+      - ./app/:/sup3rrrrr/secret/server/:ro
+      - ./start.sh:/start.sh:ro
+      - ./flag:/h3y_i_4m_th3_fl4ggg:ro
+      - ./nginx.conf:/etc/nginx/sites-available/default:ro
+    ports:
+      - 8004:80/tcp

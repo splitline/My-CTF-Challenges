@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "title": "Hello",
+        "description":
+            "Write a code that takes a name as an input and print out a greeting with that name.\nThe greeting format should be 'Hello, <name>!'",
+        "sample_input": ["Alice", "Bob"],
+        "sample_output": ["Hello, Alice!", "Hello, Bob!"],
+        "test_cases": [
+            ["Alice", "Hello, Alice!"],
+            ["Alice\nBob", "Hello, Alice!\nHello, Bob!"]
+        ],
+        "length_limit": 128
+    }
+]

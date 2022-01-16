@@ -1,0 +1,23 @@
+version: "3.5"
+
+x-share-env: &share-env
+  ADMIN_PASSWORD: MVc-QjY43XnysjKoIsrhos8-ruMS42kzstMj9CvMB1Y
+
+services:
+  web:
+    depends_on:
+      - xss-bot
+    build: ./app
+    volumes:
+      - ./app/:/app
+    ports:
+      - 8001:80/tcp
+    environment:
+      FLAG: FLAG{?callback=xss.h4ck3r}
+      RECAPTCHA_PRIVATE_KEY: <STILL_CENSORED_:D>
+      <<: *share-env
+  
+  xss-bot:
+    build: ./bot
+    environment:
+      <<: *share-env

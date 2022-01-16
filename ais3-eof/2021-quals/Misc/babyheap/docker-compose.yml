@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  main:
+    build: ./
+    ports:
+      - "7122:2222"
+    expose:
+      - "7122"

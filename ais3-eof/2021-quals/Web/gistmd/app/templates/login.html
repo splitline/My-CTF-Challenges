@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="landing">
+    <h1>GistMD</h1>
+    <form action="/login" method="post">
+        <input type="text" name="username" placeholder="username" minlength="8">
+        <input type="password" name="password" placeholder="password" minlength="8">
+        <input type="submit" value="Login / Register">
+    </form>
+    {% if error %} <p>{{ error }}</p> {% endif %}
+</div>
+{% endblock %}

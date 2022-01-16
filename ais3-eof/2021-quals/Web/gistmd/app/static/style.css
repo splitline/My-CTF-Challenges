@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
+
+/* general elements */
+
+body {
+  width: 100%;
+  max-width: 40rem;
+  margin: 1rem auto;
+  font-family: "Inconsolata", "Consolas", monospace;
+  font-size: 1.2rem;
+}
+
+sub {
+  vertical-align: sub;
+  font-size: 1rem;
+}
+
+img {
+  width: 100%;
+}
+
+a {
+  color: #24890d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a:active,
+a:hover {
+  color: #41a62a;
+}
+
+/* classes */
+
+.gist-embed {
+  width: 100%;
+  border: none;
+}
+
+.main {
+  margin: 1.5em 0;
+}
+
+.landing {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+}
+
+/* Modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 80%;
+  max-width: 40rem;
+  padding: 1rem;
+}
+
+.modal .close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.modal input {
+  width: 80%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.modal textarea {
+  width: 97%;
+  min-height: 10rem;
+}

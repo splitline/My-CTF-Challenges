@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sword Art Online</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <div class="video-background">
+        <div class="video-foreground">
+            <!--
+                請支持巴哈動畫瘋 > <
+                https://ani.gamer.com.tw/animeVideo.php?sn=926
+            -->
+            <video src="/static/link-start.mp4"></video>
+        </div>
+    </div>
+
+    <div class="start">
+        <img src="/static/start.png">
+        <h1>Link Start</h1>
+    </div>
+    <div class="login-panel">
+        <h1 class="left">Log in_::</h1>
+        <form class="right" action="/login" method="post">
+            <p>
+                <label for="username">:account</label><br>
+                <input type="text" name="username" id="username" required>
+            </p>
+            <p>
+                <label for="password">:password</label><br>
+                <input type="password" name="password" id="password" required>
+            </p>
+            <input type="submit" hidden>
+        </form>
+    </div>
+
+    <footer>
+        Your IP: <code><%= ip %></code>
+    </footer>
+
+    <script>
+        const video = document.querySelector('video');
+        const start = document.querySelector('.start');
+        start.onclick = () => {
+            start.style.transform = 'translate(-50%, -50%) scale(0)';
+            video.play();
+        }
+        video.addEventListener('ended', (event) => {
+            document.querySelector('.login-panel').style.opacity = 1;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+#!env xonsh
+
+import secrets
+import atexit
+
+from urllib.parse import urlparse
+from os import path
+
+sandbox = f"/tmp/sandbox/{secrets.token_hex(16)}"
+atexit.register(lambda: $[rm -rf @(sandbox)])
+
+rm -rf @(sandbox)
+mkdir -p @(sandbox)
+cd @(sandbox)
+
+
+def menu():
+    print(
+        "======== [Babyheap] ========\n"
+        "1. Malloc\n"
+        "2. Show\n"
+        "3. List\n"
+        "4. Free\n"
+        "0. Exit\n"
+        "----------------------------\n"
+    )
+
+
+while True:
+    menu()
+    option = input("> ")
+
+    if option == "1":
+        file = secrets.token_hex(8) + ".txt"
+        size = input("Size: ")
+        if not size.isdigit():
+            exit -1
+
+        size = int(size)
+        content = input("Content: ")[:size]
+        echo @(content) | cowsay > @(file)
+        echo f"Note {file} created"
+
+    elif option == "2":
+        file = input("Note name: ")
+        if path.exists(file):
+            nl @(file)
+        else:
+            echo f"Note '{file}' does not exist"
+    
+    elif option == "3":
+        for file in gp`./*.txt`:
+            echo "[+]" @(file.name)
+    
+    elif option == "4":
+        file = path.basename(input("Note name: "))
+        if path.exists(file):
+            rm -f @(file)
+            echo f"Deleted '{file}'"
+        else:
+            echo f"free(): double free detected in tcache 1"
+
+    elif option == "9487":
+        url = input("URL: ")
+        if urlparse(url).path.endswith(".txt"):
+            wget --no-clobber @(url)
+        else:
+            echo "Should be a .txt file"
+    
+    elif option == "9527":
+        zip export.zip *
+        link = $(curl --upload-file export.zip https://transfer.sh/export.zip)
+        echo f"Exported to {link}"
+        rm -f export.zip
+
+    elif option == "0":
+        echo "Exiting..."
+        break
+    
+    else:
+        echo "Invalid option"
+
+    print()

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block main %}
+<h1>Creating Note</h1>
+<hr>
+<nav>
+    <a href="/">[Home]</a>
+</nav>
+<hr>
+
+<form action="/new" method="post">
+    <p><input text="text" name="title" placeholder="Title"></p>
+    <p><textarea name="content" rows="10" cols="80" placeholder="Enter your note here..."></textarea></p>
+    <small>
+        Note: You can use <strong>Markdown syntax</strong> to format your note.
+        If you want to insert a Github Gist you can use <strong>&lcub;%gist username/gist_id %&rcub;</strong> format.
+    </small>
+    <p><input type="submit" value="Submit"></p>
+</form>
+{% endblock %}

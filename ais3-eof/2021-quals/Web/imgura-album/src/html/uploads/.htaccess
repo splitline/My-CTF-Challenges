@@ -1,0 +1,4 @@
+# Deny all request other than /uploads/[album-id]/[filename].{jpg,jpeg,png}
+
+RewriteCond %{REQUEST_URI} !^/uploads/([a-z0-9]{16})/.+(jpe?g|png)$ [NC]
+RewriteRule .* - [F,L]

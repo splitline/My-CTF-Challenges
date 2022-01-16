@@ -1,0 +1,1 @@
+FLAG{actually_you_can_also_solve_those_leetcode_challenges_in_this_way:D}

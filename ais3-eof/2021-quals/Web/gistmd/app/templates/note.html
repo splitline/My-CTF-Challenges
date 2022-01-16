@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block main %}
+<h1><span id="note-title"></span><sub> GistMD</sub></h1>
+<hr>
+<nav>
+    <a href="/">[Home]</a> |
+    <a class="nav-item">share</a> /
+    <a class="nav-item">raw</a> /
+    <a class="nav-item">report</a>
+</nav>
+
+<form id="report-form" action="/report/{{ note.note_id }}" method="POST" hidden>
+    <input type="text" name="g-recaptcha-response" id="g-recaptcha-response">
+</form>
+
+<div class="modal" hidden>
+    <div class="modal-content">
+        <a class="close">[x]</a>
+        <div class="modal-body"></div>
+    </div>
+</div>
+<hr>
+<div class="main">Loading...</div>
+
+<script>
+    const GistMD = {
+        'id': '{{ note.note_id }}',
+        'title': '{{ note.title }}',
+        'url': '{{ request.base_url }}',
+    };
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js?render=6Lcn9Q4eAAAAAKxGpQjhjkTnOD6RS_NTXQojxOUu"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.4/dist/purify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked@4.0.9/lib/marked.umd.min.js"></script>
+
+<script src="/static/app.js"></script>
+{% endblock %}

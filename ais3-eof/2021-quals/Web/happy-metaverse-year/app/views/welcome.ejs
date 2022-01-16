@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .welcome {
+            height: 100%;
+            background: url(/static/welcome.png) no-repeat center center;
+            background-size: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="video-background">
+        <div class="video-foreground">
+            <video src="/static/welcome.mp4" muted autoplay></video>
+        </div>
+    </div>
+
+    <div class="welcome">
+        <!-- <img src="/static/welcome.png"> -->
+    </div>
+
+    <script>
+        const video = document.querySelector('video');
+        video.addEventListener('ended', (event) => {
+            document.querySelector('.welcome').style.opacity = 1;
+        });
+
+    </script>
+</body>
+
+</html>

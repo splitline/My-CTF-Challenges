@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  judge:
+    privileged: true
+    volumes:
+      - ./share:/ctf
+    build: ./
+    ports:
+      - "1337:48763"
+    expose:
+      - "1337"

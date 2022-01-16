@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="landing">
+    <h1>GistMD</h1>
+    <nav>
+        <a href="/">[Home]</a> |
+        <a href="/new">[New]</a> |
+        <a href="/logout">[Logout]</a>
+    </nav>
+</div>
+<hr>
+<div class="main">
+    <h2>Note List</h2>
+        <ol>
+            {% for note in notes %}
+            <li>
+                <a href="/note/{{ note.note_id }}">{{ note.title }} / {{ note.note_id }}</a>
+            </li>
+            {% else %}
+            <p>(No notes found)</p>
+            {% endfor %}
+        </ol>
+</div>
+{% endblock %}
