@@ -1,5 +1,42 @@
 # My CTF Challenges
 
+## AIS3 EOF CTF
+
+### 2021 Quals
+
+   | Name                                                                  | Category | Keywords (intended solution)              | Estimated Difficulty |
+   | --------------------------------------------------------------------- | -------- | ----------------------------------------- | -------------------- |
+   | [SSRF challenge or not?](ais3-eof/2021-quals/Web/ssrf-or-not/)        | Web      | `file://`, signed pickle cookie           | ⭐                    |
+   | [Happy Metaverse Year](ais3-eof/2021-quals/Web/happy-metaverse-year/) | Web      | Union-based SQLi                          | ⭐⭐                   |
+   | [babyphp](ais3-eof/2021-quals/Web/babyphp/)                           | Web      | .htaccess, chain `php://filters`          | ⭐⭐⭐                  |
+   | [GistMD](ais3-eof/2021-quals/Web/gistmd/)                             | Web      | jsonp, DOM clobbering                     | ⭐⭐⭐⭐                 |
+   | [Imgura album](ais3-eof/2021-quals/Web/imgura-album/)                 | Web      | Path traversal, PHP session , deserialize | ⭐⭐⭐⭐                 |
+   | [PM](ais3-eof/2021-quals/Web/pm/)                                     | Web      | FPM SSRF                                  | ⭐                    |
+   | [LeetCall](ais3-eof/2021-quals/Misc/leetcall/)                        | Misc     | Python, Programming                       | ⭐⭐⭐                  |
+   | [babyheap](ais3-eof/2021-quals/Misc/babyheap/)                        | Misc     | argument injection (`wget`, `zip`)        | ⭐⭐⭐                  |
+   
+
+### 2020 Quals
+
+   | Name                                                    | Category | Keywords                                   |
+   | ------------------------------------------------------- | -------- | ------------------------------------------ |
+   | [WTF](ais3-eof/2020-quals/Web/what-the-file)            | Web      | php wrapper, `file` command                |
+   | [CYBERPUNK 1977](ais3-eof/2020-quals/Web/CYBERPUNK1977) | Web      | SQL injection, quine, python format string |
+   | [CTF Note](ais3-eof/2020-quals/Web/ctf-note)            | Web      | prototype pollution, DOM clobbering, RPO   |
+   | [3DUSH3LL](ais3-eof/2020-quals/Misc/3DUSH3LL)           | Misc     | Python Sandbox                             |
+
+
+### 2020 Final
+
+> All of my challenges in this CTF are related to Python XD
+
+   | Name                                                 | Category | Keywords        | Estimated Difficulty |
+   | ---------------------------------------------------- | -------- | --------------- | -------------------- |
+   | [Pikora](ais3-eof/2020-final/pikora)                 | Misc     | Pickle, PPC     | Hard                 |
+   | [Cat Translator](ais3-eof/2020-final/cat-translator) | Misc     | Troll, Python   | Easy                 |
+   | [Cat Slayer](ais3-eof/2020-final/cat-slayer)         | Reverse  | Python bytecode | Medium ~ Hard        |
+
+
 ## AIS3 Pre-Exam
 
 ### 2021
@@ -15,25 +52,3 @@
    | Cat Slayer \| Cloud Edition  | Misc     | Pickle, ECB Cut&Paste                 | Medium               |
    | Cat Slayer \| Online Edition | Misc     | Game, Python Sandbox                  | Easy                 |
    
-
-## AIS3 EOF CTF
-
-### 2020 Quals
-
-   | Name                                                    | Category | Keywords                                   |
-   | ------------------------------------------------------- | -------- | ------------------------------------------ |
-   | [WTF](ais3-eof/2020-quals/Web/what-the-file)            | Web      | php wrapper, `file` command                |
-   | [CYBERPUNK 1977](ais3-eof/2020-quals/Web/CYBERPUNK1977) | Web      | SQL injection, quine, python format string |
-   | [CTF Note](ais3-eof/2020-quals/Web/ctf-note)            | Web      | prototype pollution, DOM clobbering, RPO   |
-   | [3DUSH3LL](ais3-eof/2020-quals/Misc/3DUSH3LL)                | Misc     | Python Sandbox                             |
-
-
-### 2020 Final
-
-> All of my challenges in this CTF are related to Python XD
-
-   | Name                                                 | Category | Keywords        | Estimated Difficulty |
-   | ---------------------------------------------------- | -------- | --------------- | -------------------- |
-   | [Pikora](ais3-eof/2020-final/pikora)                 | Misc     | Pickle, PPC     | Hard                 |
-   | [Cat Translator](ais3-eof/2020-final/cat-translator) | Misc     | Troll, Python   | Easy                 |
-   | [Cat Slayer](ais3-eof/2020-final/cat-slayer)         | Reverse  | Python bytecode | Medium ~ Hard        |
