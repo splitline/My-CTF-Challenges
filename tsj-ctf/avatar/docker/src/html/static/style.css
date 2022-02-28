@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
+
+body {
+  width: 100%;
+  max-width: 40rem;
+  margin: 1rem auto;
+  font-family: "Inconsolata", "Consolas", monospace;
+}
+
+main {
+  margin-top: 0.75rem;
+}
+
+h1,
+h2 {
+  margin: 0;
+}
+
+input[type="text"], input[type="password"] {
+  padding: 0.25rem;
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+.container {
+  text-align: center;
+  margin: 5rem;
+}
+
+/* tabs */
+nav > a {
+  background-color: #777;
+  border-radius: 5px 5px 0 0;
+  color: white;
+  padding: 0.3em;
+  text-decoration: none;
+}
+.content {
+  border: 1px solid lightgray;
+  display: none;
+  padding: 32px;
+  margin-top: 0.3em;
+}
+.content:target {
+  display: block;
+}
+
+input[type="file"],
+input[type="url"] {
+  width: 75%;
+}
+input[type="submit"] {
+  width: 15%;
+}

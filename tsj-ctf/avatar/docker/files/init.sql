@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS `users` (
+    `id` INT NOT NULL AUTO_INCREMENT,
+    `username` TEXT NULL DEFAULT NULL,
+    `password` TEXT NULL DEFAULT NULL,
+    `avatar` BLOB NULL DEFAULT NULL,
+    PRIMARY KEY (`id`)
+);

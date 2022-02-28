@@ -1,0 +1,31 @@
+version: '3.5'
+
+services:
+
+  redis:
+    image: redis:alpine
+    restart: always
+    volumes:
+      - ./files/redis.conf:/usr/local/etc/redis/redis.conf:ro
+    command: redis-server /usr/local/etc/redis/redis.conf
+
+  database:
+    image: mariadb:10
+    restart: always
+    volumes:
+      - ./files/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=1
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=p@55w0rd
+      - MYSQL_DATABASE=db
+
+  web:
+    build: ./
+    volumes:
+      - ./files/php.ini:/usr/local/etc/php/conf.d/custom.ini:ro
+    ports:
+      - 10004:80/tcp
+    depends_on:
+      - redis
+      - database
