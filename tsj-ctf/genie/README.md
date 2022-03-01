@@ -65,7 +65,7 @@ We know in the decryption of CBC mode, the last block (block#5) is XORed with th
 Ciphertext(block#4) = ("\x10" * 16) XOR Ciphertext(block#4) XOR Target(block#5)
 ```
 
-We can manipulate the last block of the decrypted plaintext now, but this will break the plaintext of block#1 ~ block#3 obviously.
+We can manipulate the last block of the decrypted plaintext now, this will break the plaintext of block#1 ~ block#4 obviously, but it won't affect our exploitation.
 
 Actually the unpadding function [just takes the last byte of the padding as the padding length](https://github.com/JuliaCrypto/Nettle.jl/blob/master/src/cipher.jl#L90-L93), it doesn't check it at all, so we can easily let the padding length be `len(plaintext) - 1`, then we can get a plaintext with only one byte!
 
