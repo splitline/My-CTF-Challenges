@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  web:
+    build: .
+    init: true
+    ports:
+      - 8888:3000
+    environment:
+      - USERNAME=user
+      - PASSWORD=pass

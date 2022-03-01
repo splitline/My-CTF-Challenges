@@ -49,7 +49,7 @@ $image = file_get_contents($url, false, stream_context_create([
 Actually there is a (intended) CRLF injection feature in `stream_context_create`. So you can use `http://host/a.b%0D%0Ameow` to inject CRLF.
 
 
-## Control Redis
+### Control Redis
 
 The first things you need to know is that PHP session is stored in serialized format, so once you can control the content of session, you got a deserialization vulnerbility.
 
@@ -83,7 +83,7 @@ In this way, you can send any command to redis now!
 
 > P.S. You might want to use SLAVEOF, MODULE LOAD or other known tricks to get RCE in the first place, but those commands are renamed in `redis.conf` so that won't work.
 
-## POP Chain
+### POP Chain
 
 Where can we trigger the POP chain? There is no `__destruct` or `__wakeup` in FluentPDO, which is a common entry point for POP chain. But that's not a problem, we can also use `__toString()` to trigger it. In `index.php` there is a code like this: `$user = $fluent->from('users')->where('username', $_SESSION['username'])->fetch()`, which will automatically convert `$_SESSION['username']` to string!
 
@@ -106,12 +106,12 @@ Envms\FluentPDO\Queries\Base->getQuery()
 Envms\FluentPDO\Queries\Base->__toString()
 ```
 
-## Exploit
+### Exploit
 
 1. Post `url` to set your session to that POP chain.
 2. Get `index.php` to trigger the RCE.
 
-See [./exploit/exploit.py].
+See [exploit.py](./exploit/exploit.py).
 
 Note that if your command contains `/` or `.`, your serialized data might not work because the `pathinfo` will break it. In this case, you can try things like `bash -c '\${PATH:0:1}readflag give me the flag'` or escape with [another serialization format](https://github.com/ambionics/phpggc#ascii-strings).
 
