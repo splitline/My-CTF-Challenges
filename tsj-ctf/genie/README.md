@@ -85,8 +85,12 @@ We know we have a path traversal bug to upload a file to any directory, and we c
 
 You just need to simply upload 254 files with the filename `"../sessions/\x01"` to `"../sessions/\xFF"` (excluding `"."` and `"\"`), then forged a one byte session id to trigger the deserialization.
 
-As we mentioned in the previous section, we don't need to really know what the "one byte" is, because we've uploaded a lot of one byte filename session files, so there is high chance to match one of them.
+As we mentioned in the previous section, we don't need to really know what the "one byte" is, because we've uploaded a lot of one byte filename session files, there is a high chance to match one of them.
 
 Note that we need to trigger the deserialization twice, because the first time is just overwriting the `Serialization.deserialize(s::Serializer, t::Type{...})` method, and the second time really triggers the RCE.
 
 For the full exploit please check our [exploit script](exploit/exploit.py).
+
+## Postscript
+
+I've opened a issue about this bug, see [Genie.jl#493](https://github.com/GenieFramework/Genie.jl/issues/493).
