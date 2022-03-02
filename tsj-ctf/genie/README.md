@@ -46,7 +46,7 @@ Basically, the session id is actually an encrypted string of the filename, you c
 
 Wait a minute, **CBC**? Seems like we can use padding oracle to attack it? Well, not really, because [it's IV is fixed](https://github.com/JuliaCrypto/Nettle.jl/blob/master/src/cipher.jl#L78-L83) (generated from `Genie.secret_token` exactly) and we don't have any way to change it (and the unpadding function never throws padding error by the way).
 
-How about the **bit flipping attack**? We can't control the IV, which means we can only manipulate the last block of plaintext -- but that's enough.
+How about the **bit flipping attack**? We can't control the IV, which means we can't never manipulate the first block of plaintext -- but that's enough.
 
 Actually we've know the plaintext of the last block. Because PKCS#5 padding is used, and [the filename is always 64 bytes long](https://github.com/GenieFramework/Genie.jl/blob/v4.14.0/src/Sessions.jl#L46-L51), which means the last block is always filled with padding `bytes([16])*16`.
 
@@ -83,7 +83,7 @@ then we can get a plaintext with only one byte.
 
 We know we have a path traversal bug to upload a file to any directory, and we can craft the filename of our session to only one byte, let's talk about how to exploit it.
 
-You just need to simply upload 254 files with the filename `"../sessions/\x01"` to `"../sessions/\xFF"` (excluding `"."` and `"\"`), then forged a one byte session id to trigger the deserialization.
+You just need to simply upload 254 files with the filename `"../sessions/\x01"` to `"../sessions/\xFF"` (excluding `"."` and `"/"`), then forged a one byte session id to trigger the deserialization.
 
 As we mentioned in the previous section, we don't need to really know what the "one byte" is, because we've uploaded a lot of one byte filename session files, there is a high chance to match one of them.
 
@@ -93,4 +93,4 @@ For the full exploit please check our [exploit script](exploit/exploit.py).
 
 ## Postscript
 
-I've opened a issue about this bug, see [Genie.jl#493](https://github.com/GenieFramework/Genie.jl/issues/493).
+I've opened an issue about this bug, see [Genie.jl#493](https://github.com/GenieFramework/Genie.jl/issues/493).
