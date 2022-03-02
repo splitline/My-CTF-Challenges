@@ -1,5 +1,14 @@
 # My CTF Challenges
 
+## TSJ CTF 2022
+
+ | Name                                                | Tags           | Keywords                              |
+ | --------------------------------------------------- | -------------- | ------------------------------------- |
+ | [Genie](./tsj-ctf/genie/)                           | Web, Crypto    | Julia deserialization, Bit flipping   |
+ | [Avatar](./tsj-ctf/avatar/)                         | Web            | Redis SSRF, CRLF injection, POP chain |
+ | [Welcome to TSJ CTF](./tsj-ctf/welcome-to-tsj-ctf/) | Web, Misc, CSC | .DS_Store, Guessing                   |
+
+
 ## AIS3 EOF CTF
 
 ### 2021 Quals
