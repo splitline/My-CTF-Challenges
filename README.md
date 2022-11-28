@@ -1,5 +1,16 @@
 # My CTF Challenges
 
+## HITCON CTF 2022
+
+| Challenge               | Category | Keywords |
+| ----------------------- | -------- | -------- |
+| 🎲 RCE                   | web      | Baby     |
+| 💣 Self Destruct Message | web      | XSS      |
+| 🎧 S0undCl0ud            | web      |          |
+| 📃 web2pdf               | web      | 0-day    |
+| V O I D                 | misc     | PyJail   |
+| 🥒 Picklection           | misc     | Pickle   |
+
 ## TSJ CTF 2022
 
  | Name                                                | Tags           | Keywords                              |

