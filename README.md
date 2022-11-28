@@ -2,14 +2,14 @@
 
 ## HITCON CTF 2022
 
-| Challenge               | Category | Keywords |
-| ----------------------- | -------- | -------- |
-| 🎲 RCE                   | web      | Baby     |
-| 💣 Self Destruct Message | web      | XSS      |
-| 🎧 S0undCl0ud            | web      |          |
-| 📃 web2pdf               | web      | 0-day    |
-| V O I D                 | misc     | PyJail   |
-| 🥒 Picklection           | misc     | Pickle   |
+| Challenge                                          | Category | Keywords |
+| -------------------------------------------------- | -------- | -------- |
+| [🎲 RCE](hitcon-ctf/2022/web/rce)                   | web      | Baby     |
+| [💣 Self Destruct Message](hitcon-ctf/2022/web/sdm) | web      | XSS      |
+| [🎧 S0undCl0ud](hitcon-ctf/2022/web/S0undCl0ud)     | web      |          |
+| [📃 web2pdf](hitcon-ctf/2022/web/web2pdf)           | web      | 0-day    |
+| [V O I D](hitcon-ctf/2022/misc/void)               | misc     | PyJail   |
+| [🥒 Picklection](hitcon-ctf/2022/web/picklection)   | misc     | Pickle   |
 
 ## TSJ CTF 2022
 
