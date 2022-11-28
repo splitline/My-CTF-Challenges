@@ -2,6 +2,8 @@
 
 ## HITCON CTF 2022
 
+[goto: writeup](https://blog.splitline.tw/hitcon-ctf-2022/)
+
 | Challenge                                          | Category | Keywords |
 | -------------------------------------------------- | -------- | -------- |
 | [🎲 RCE](hitcon-ctf/2022/web/rce)                   | web      | Baby     |
