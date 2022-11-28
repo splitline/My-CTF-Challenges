@@ -11,7 +11,7 @@
 | [🎧 S0undCl0ud](hitcon-ctf/2022/web/S0undCl0ud)     | web      |          |
 | [📃 web2pdf](hitcon-ctf/2022/web/web2pdf)           | web      | 0-day    |
 | [V O I D](hitcon-ctf/2022/misc/void)               | misc     | PyJail   |
-| [🥒 Picklection](hitcon-ctf/2022/web/picklection)   | misc     | Pickle   |
+| [🥒 Picklection](hitcon-ctf/2022/misc/picklection)   | misc     | Pickle   |
 
 ## TSJ CTF 2022
 
