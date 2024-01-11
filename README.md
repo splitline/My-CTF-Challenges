@@ -1,6 +1,8 @@
 # My CTF Challenges
 
-#### HITCON CTF 2023
+#### HITCON CTF
+
+**2023 Quals**
 
 [write-up](https://blog.splitline.tw/hitcon-ctf-2023/)
 
@@ -9,7 +11,8 @@
 | Sharer    | web       | XSS and CSRF with [Signed Exchange](https://web.dev/articles/signed-exchanges) (SXG) feature. |
 | AMF       | web, misc | Find an RCE gadget in [Py3AMF](https://github.com/StdCarrot/Py3AMF) |
 
-#### HITCON CTF 2022
+
+**2022 Quals**
 
 [write-up](https://blog.splitline.tw/hitcon-ctf-2022/)
 
@@ -22,7 +25,7 @@
 | [V O I D](hitcon-ctf/2022/misc/void)               | misc     | Using OOB bytecodes to escape PyJail                         |
 | [🥒 Picklection](hitcon-ctf/2022/web/picklection)   | misc     | Pickle Jail                                                  |
 
-**Balsn CTF **
+**Balsn CTF**
 
 **2023**
 
