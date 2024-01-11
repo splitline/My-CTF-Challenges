@@ -1,6 +1,6 @@
 # My CTF Challenges
 
-#### HITCON CTF
+### HITCON CTF
 
 **2023 Quals**
 
@@ -25,7 +25,7 @@
 | [V O I D](hitcon-ctf/2022/misc/void)               | misc     | Using OOB bytecodes to escape PyJail                         |
 | [🥒 Picklection](hitcon-ctf/2022/web/picklection)   | misc     | Pickle Jail                                                  |
 
-**Balsn CTF**
+### Balsn CTF
 
 **2023**
 
@@ -33,7 +33,7 @@
 | ----- | -------- | -------------------------- |
 | Memes | web      | `imagepng` + FTP PASV SSRF |
 
-#### TSJ CTF 2022
+### TSJ CTF 2022
 
 | Name                                                | Category       | Description                                                  |
 | --------------------------------------------------- | -------------- | ------------------------------------------------------------ |
@@ -41,7 +41,7 @@
 | [Avatar](./tsj-ctf/avatar/)                         | Web            | Redis SSRF, CRLF injection, POP chain                        |
 | [Welcome to TSJ CTF](./tsj-ctf/welcome-to-tsj-ctf/) | Web, Misc, CSC | .DS_Store, Guessing                                          |
 
-#### AIS3 EOF CTF
+### AIS3 EOF CTF
 
 **2023 Final**
 
@@ -84,7 +84,7 @@
 | [CTF Note](ais3-eof/2020-quals/Web/ctf-note)            | Web      | prototype pollution (gadget in [markdown-js](https://github.com/evilstreak/markdown-js)), DOM clobbering, RPO |
 | [3DUSH3LL](ais3-eof/2020-quals/Misc/3DUSH3LL)           | Misc     | Pyjail                                                       |
 
-#### 2021 Final
+### 2021 Final
 
 > All of my challenges in this CTF are related to Python XD
 
@@ -94,7 +94,7 @@
 | [Cat Translator](ais3-eof/2020-final/cat-translator) | Misc     | Troll, PyJail         |
 | [Cat Slayer](ais3-eof/2020-final/cat-slayer)         | Reverse  | Python bytecode (pvc) |
 
-#### AIS3 Pre-Exam
+### AIS3 Pre-Exam
 
 **2022**
 
