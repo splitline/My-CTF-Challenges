@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="landing">
+    <h1>Upload</h1>
+    {% if error %}
+    <p>{{ error }}</p>
+    {% endif %}
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <p>
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title" placeholder="title">
+        </p>
+        <p>
+            <label for="file">File:</label>
+            <input type="file" name="file" id="file" accept="image/*">
+        </p>
+
+        <input type="submit" value="Upload">
+    </form>
+</div>
+{% endblock %}

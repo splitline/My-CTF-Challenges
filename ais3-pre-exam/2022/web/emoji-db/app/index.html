@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Emoji Database</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+
+        body {
+            width: 100%;
+            max-width: 45rem;
+            margin: 1rem auto;
+            font-family: "Inconsolata", "Consolas", monospace;
+            font-size: 1.2rem;
+        }
+
+        h1>sub {
+            font-size: 1.25rem;
+        }
+
+        input[type=range] {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 15px;
+            background: #f5f5f5;
+            outline: none;
+            opacity: 0.7;
+            transform: scale(0.85);
+            transition: opacity .3s;
+            transition: transform .3s;
+
+        }
+
+        input[type=range]:focus {
+            opacity: 1;
+            transform: scale(2.5);
+        }
+
+        #available-emoji{
+            position: fixed;
+            left: 0;
+        }
+        #available-emoji span {
+            position: fixed;
+            transition: transform .1s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>
+        Cat Emoji Database
+        <sub><a href="/source" onclick="troll(event)">[Show source code]</a></sub>
+    </h1>
+    <div>
+        This is a database of all the cat 🐱 emoji in the world.
+
+    </div>
+
+    <div>
+        <p>Choose a cat unicode:</p>
+        <input type="range" min="0" max="1114111" value="128049" step="1" onchange="update(this.value)"
+            oninput="unicode.textContent=`U+${(+this.value).toString(16).toUpperCase()}`">
+        <p>Unicode: <span id="unicode">U+1F431</span></p>
+        <div id="result"></div>
+        <hr>
+        <h3>Available Emoji:</h3>
+        <div id="available-emoji"></div>
+    </div>
+
+    <script>
+        window.addEventListener("load", function () {
+            update(128049);
+            fetch('/api/all')
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(({ Name }) => {
+                        const span = document.createElement('span');
+                        span.innerText = `:${Name}:`;
+                        function move(span) {
+                            span.style.transform = `translate(${Math.round(Math.random() * 100)}vw, ${Math.round(Math.random() * 250)}px) rotate(${Math.round(Math.random() * 360)}deg) scale(${Math.round(Math.random() * 5)})`;
+                            setTimeout(() => move(span), Math.round(Math.random() * 1000));
+                        }
+                        document.getElementById('available-emoji').appendChild(span);
+                        move(span);
+                    });
+                });
+        });
+
+        function troll(event) {
+            event.preventDefault();
+            document.write(`<p style="font-size:256px;text-align:center;color:red">source code</p>`);
+        }
+
+        function update(value) {
+            fetch('/api/emoji/' + value)
+                .then(response => response.json())
+                .then(({ data, error }) => {
+                    if (error) {
+                        document.getElementById('result').innerHTML = '<p style="color:red">Not a cat emoji</p>';
+                    } else {
+                        const { Emoji, Name, Description } = data;
+                        document.getElementById('result').innerHTML = `
+                            <p><b>Emoji</b> ${Emoji}</p> 
+                            <p><b>Short Code</b> :${Name}:</p> 
+                            <p><b>Description</b> ${Description}</p>`
+                    }
+                }
+                );
+        }
+    </script>
+
+</body>
+
+</html>

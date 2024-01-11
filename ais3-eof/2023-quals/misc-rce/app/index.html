@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs/loader.min.js"
+        integrity="sha512-6bIYsGqvLpAiEBXPdRQeFf5cueeBECtAKJjIHer3BhBZNTV3WLcLA8Tm3pDfxUwTMIS+kAZwTUvJ1IrMdX8C5w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>RCE</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            width: 80vw;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            background: #333;
+            color: #fff;
+            cursor: pointer;
+            width: 100%;
+            margin: 1em;
+        }
+
+        button:hover {
+            background: #555;
+        }
+
+        button:active {
+            background: #777;
+        }
+
+        pre {
+            background: #eee;
+            padding: 1em;
+            border: 1px solid #ccc;
+            margin: 1em;
+            overflow: scroll;
+            min-height: 100px;
+        }
+
+        #monaco {
+            width: 100%;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>RCE</h1>
+    <form>
+        <div id="monaco"></div>
+        <button type="submit">Run</button>
+    </form>
+
+    <h2>Output</h2>
+    <pre>...</pre>
+
+    <p style="text-align: center; font-size: 1em; color: #777;">
+        Trivia: The TLD of Paraguay 🇵🇾 is <a href="https://es.wikipedia.org/wiki/.py">.py</a>
+    </p>
+
+    <script>
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.34.1/min/vs' } })
+        require(['vs/editor/editor.main'], function () {
+            window.editor = monaco.editor.create(document.getElementById('monaco'), {
+                value: `# read flag\nwith open('/flag', 'r') as f:\n    print("The flag is: " + f.read())\n`,
+                language: 'python',
+                fontSize: "16px",
+            })
+        })
+        document.querySelector('form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const code = window.editor.getValue();
+            fetch('/exec', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ code })
+            }).then(res => res.text()).then(res => {
+                document.querySelector('pre').innerText = res;
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+version: '3.5'
+
+services:
+  sqlserver:
+    build: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "hdRU4f4ax_-LiDzJA6G3_YnLADGT3PcgCsfSdl3xxRw!"
+      MSSQL_SA_PASSWORD: "hdRU4f4ax_-LiDzJA6G3_YnLADGT3PcgCsfSdl3xxRw!"
+
+  web:
+    image: tiangolo/uwsgi-nginx-flask:latest
+    volumes:
+      - ./app:/app
+    ports:
+      - "9487:80"
+    depends_on:
+      - sqlserver

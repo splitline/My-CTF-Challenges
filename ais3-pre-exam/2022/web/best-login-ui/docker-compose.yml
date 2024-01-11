@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  web:
+    image: node:alpine
+    volumes:
+      - ./src:/app
+    command: /bin/sh -c "cd /app && npm install -g supervisor && npm install && supervisor app.js"
+    ports:
+      - "54088:3000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_HOST=mongodb://mongodb:27017/
+      - MONGO_DATABASE=loginui
+      - PORT=3000
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo
+    volumes:
+      - ./mongo/init.js:/docker-entrypoint-initdb.d/init.js
+      - ./mongo/data:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=loginui

@@ -1,0 +1,23 @@
+version: '3.5'
+
+services:
+  nginx:
+    networks:
+      - default
+      - no-internet
+    image: nginx:alpine
+    ports:
+      - "9453:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+
+  web:
+    networks:
+      - no-internet
+    build: .
+
+networks:
+  default:
+  no-internet:
+    internal: true
+    

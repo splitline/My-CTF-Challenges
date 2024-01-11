@@ -1,0 +1,27 @@
+version: "3.5"
+
+x-share-env: &share-env
+  ADMIN_PASSWORD: fzumvTz2K5-aT0Hy-LMZelKYUpS8aDgvuWTK_s0t1I0
+  FLAG_UUID: f4cdc213-a638-4195-9536-eafc2f635ecd
+
+services:
+  web:
+    depends_on:
+      - xss-bot
+    image: tiangolo/uwsgi-nginx-flask:python3.9
+    volumes:
+      - ./app/:/app:ro
+      - ./uploads:/data/uploads
+      - ./flag.png:/flag.png
+    ports:
+      - 9527:80/tcp
+    environment:
+      <<: *share-env
+    restart: always
+  
+  xss-bot:
+    build: ./bot
+    environment:
+      <<: *share-env
+    restart: always
+

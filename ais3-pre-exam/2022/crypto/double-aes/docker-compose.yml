@@ -1,0 +1,10 @@
+version: '3.7'
+services:
+  chall:
+    build:
+      context: .
+    ports:
+      - 7414:7414
+    environment:
+      - FLAG=AIS3{OFB(ECB(more_AES_doesn't_mean_more_safe_qwqqqqq))}
+    restart: always

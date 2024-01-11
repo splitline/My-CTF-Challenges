@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap");
+
+/* general elements */
+
+body {
+    width: 100%;
+    max-width: 40rem;
+    margin: 1rem auto;
+    font-family: "Inconsolata", "Consolas", monospace;
+    font-size: 1.2rem;
+}
+
+sub {
+    vertical-align: sub;
+    font-size: 1rem;
+}
+
+img {
+    width: 100%;
+}
+
+a {
+    color: #24890d;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:active,
+a:hover {
+    color: #41a62a;
+}
+
+.main {
+    margin: 1.5em 0;
+}
+
+.landing {
+    height: 35vh;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    flex-direction: column;
+    padding-bottom: 1.5rem;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #24890d;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
+
+.image .utils {
+    text-align: center;
+}

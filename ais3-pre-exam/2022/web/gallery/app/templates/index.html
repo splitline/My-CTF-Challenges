@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block main %}
+<div class="main">
+    <h1>Gallery</h1>
+    <nav>
+        <a href="/">[Home]</a> |
+        <a href="/upload">[Upload]</a> |
+        <a href="/report">[Report]</a>
+    </nav>
+</div>
+<hr>
+<div class="main">
+    <h2>Images</h2>
+    {% for image in images %}
+    <div class="image">
+        <figure>
+            <img src="/image/{{ image.uuid }}" alt="{{ image.title }}">
+            <figcaption>> {{ image.title }}</figcaption>
+        </figure>
+        <div class="utils">
+            <a href="/image/{{ image.uuid }}">[View]</a> |
+            <a href="/image/{{ image.uuid }}/download">[Download]</a>
+        </div> 
+
+    </div>
+    {% else %}
+    <p>(No image found)</p>
+    {% endfor %}
+</div>
+{% endblock %}

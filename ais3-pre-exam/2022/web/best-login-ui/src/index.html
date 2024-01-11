@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Best Login UI</title>
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+
+        form {
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            padding: 20px 30px;
+            margin: 5em auto;
+            max-width: 400px;
+        }
+
+        label {
+            display: block;
+            margin: 0 0 1.5em;
+            font-weight: bolder;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, .05);
+            display: block;
+            font-size: 14px;
+            margin: 0 0 20px;
+            padding: 8px;
+            width: 100%;
+        }
+
+        input[type='range'] {
+            width: 100%;
+        }
+
+        input[type='submit'] {
+            background-color: #f5f5f5;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+            color: #777;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0 0 20px;
+            padding: 8px;
+            width: 100%;
+        }
+
+        input:disabled {
+            background-color: #e5e5e5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form">
+        <h1>The Best Login UI</h1>
+        <p>Drag the slider to input username and password.</p>
+        <p>
+            <label for="username">Username:</label>
+            <input type="text" name="username" placeholder="Username" disabled>
+            <input type="range" id="username_input" min="0"
+                max="1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+                value="0" />
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Password" disabled>
+            <input type="range" id="password_input" min="0"
+                max="1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000"
+                value="0" />
+        </p>
+        <input type="submit" value="Login">
+    </form>
+
+    <script>
+        function baseConvert(number) {
+            const DIGITS = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ ';
+            const base = DIGITS.length;
+            let str = '';
+            let value = number;
+            while (value > 0) {
+                str = DIGITS[value % base] + str;
+                value = Math.floor(value / base);
+            }
+            return str;
+        }
+        document.getElementById('username_input').oninput = function () {
+            document.querySelector('input[name="username"]').value = baseConvert(this.value);
+        };
+
+        document.getElementById('password_input').oninput = function () {
+            document.querySelector('input[name="password"]').value = baseConvert(this.value);
+        };
+
+        document.getElementById('form').onsubmit = function (e) {
+            e.preventDefault();
+            const username = document.querySelector('input[name="username"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/login');
+            xhr.setRequestHeader('Content-Type', 'application/xml');
+            xhr.send(`<login><credentials username="${username}" password="${password}"></credentials></login>`);
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    alert("Login " + xhr.responseText);
+                } else {
+                    alert(`Request failed.  Returned status of ${xhr.status}`);
+                }
+            };
+        };
+    </script>
+</body>
+
+</html>
