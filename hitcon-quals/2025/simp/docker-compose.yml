@@ -1,0 +1,7 @@
+services:
+  chal:
+    build: ./
+    ports:
+      - "48763:48763"
+    expose:
+      - "48763"
